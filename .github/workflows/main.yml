@@ -1,3 +1,4 @@
+name: SonarQube analysis
 on:
   # Trigger analysis when pushing to your main branches, and when creating a pull request.
   push:
@@ -6,14 +7,14 @@ on:
   pull_request:
       types: [opened, synchronize, reopened]
 
-name: Sonarqube Scan
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
       with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
+        # Disabling shallow clone is recommended for improving the relevancy of reporting
         fetch-depth: 0
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
