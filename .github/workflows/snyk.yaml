@@ -1,6 +1,6 @@
-name: Workflow for Python using Snyk
+name: Workflow using Snyk
 
-on: push
+on:
   push:
     branches: [ "main" ]
   pull_request:
