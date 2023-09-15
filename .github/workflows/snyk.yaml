@@ -25,9 +25,10 @@ jobs:
       with:
         args: --sarif-file-output=snyk.sarif        
     - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v1
+      uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: snyk.sarif
+        file: snyk.sarif
+        sarif: true
         category: snyk-scan-results
   iac-snyk:
     permissions:
@@ -47,9 +48,10 @@ jobs:
         file: templates/base
         args: --report
     - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v1
+      uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: snyk.sarif  
+        file: snyk.sarif
+        sarif: true  
   docker-snyk:
     permissions:
       contents: read # for actions/checkout to fetch code
@@ -69,6 +71,7 @@ jobs:
         image: app
         args: --file=Dockerfile          
     - name: Upload result to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v1
+      uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: snyk.sarif
+        file: snyk.sarif
+        sarif: true
