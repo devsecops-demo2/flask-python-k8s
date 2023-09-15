@@ -27,8 +27,7 @@ jobs:
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
-        file: .
-        sarif: true
+        sarif_file: .
         category: snyk-scan-results
   iac-snyk:
     permissions:
@@ -50,8 +49,7 @@ jobs:
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
-        file: .
-        sarif: true  
+        sarif_file: .
   docker-snyk:
     permissions:
       contents: read # for actions/checkout to fetch code
@@ -73,5 +71,4 @@ jobs:
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
-        file: .
-        sarif: true
+        sarif_file: .
